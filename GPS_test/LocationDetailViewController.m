@@ -57,7 +57,7 @@
     mapView_.myLocationEnabled = YES;
     [self.view addSubview:mapView_];
     
-//    manager.delegate = self;
+    manager.delegate = self;
     manager.desiredAccuracy = kCLLocationAccuracyBest;
     [manager startUpdatingLocation];
     

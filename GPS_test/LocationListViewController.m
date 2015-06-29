@@ -81,6 +81,7 @@
     
     LocationObject *locationAtIndex = [self.locationDataController objectInListAtIndex:indexPath.row];
     [[cell textLabel] setText:locationAtIndex.locationName];
+//    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"(%@, %@)",locationAtIndex.latitude,locationAtIndex.longitude]];
     [[cell detailTextLabel] setText:[NSString stringWithFormat:@"(%@, %@)",locationAtIndex.latitude,locationAtIndex.longitude]];
     return cell;
 }
@@ -155,7 +156,7 @@
     
     [self.locationDataController editLocation:self.selectedindex.row :editedlocation];
     [self.tableView reloadData];
-        [self.locationDataController saveToPlist];
+    [self.locationDataController saveToPlist];
     }
 }
 

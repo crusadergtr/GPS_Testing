@@ -29,6 +29,7 @@
 		84B6D65E1B3D10A6001B1A9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B6D65D1B3D10A6001B1A9B /* Main.storyboard */; };
 		84B6D6611B40CF0F001B1A9B /* icon_gps_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B6D65F1B40CF0F001B1A9B /* icon_gps_active.png */; };
 		84B6D6621B40CF0F001B1A9B /* icon_gps_inLocation.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B6D6601B40CF0F001B1A9B /* icon_gps_inLocation.png */; };
+		84B6D6651B410761001B1A9B /* LocationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B6D6641B410761001B1A9B /* LocationMapViewController.m */; };
 		ABC37C8C7E5D26574A4C1653 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E1FA52371960AD109953C18 /* libPods.a */; };
 		B779316FE8BACFBA7CFED045 /* libPods-GPS_test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71AE6453BC99318CBC2A31CE /* libPods-GPS_test.a */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,8 @@
 		84B6D65D1B3D10A6001B1A9B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		84B6D65F1B40CF0F001B1A9B /* icon_gps_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_gps_active.png; sourceTree = "<group>"; };
 		84B6D6601B40CF0F001B1A9B /* icon_gps_inLocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_gps_inLocation.png; sourceTree = "<group>"; };
+		84B6D6631B410761001B1A9B /* LocationMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationMapViewController.h; sourceTree = "<group>"; };
+		84B6D6641B410761001B1A9B /* LocationMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationMapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +159,8 @@
 				840444911B2EA16F00AE6B22 /* AppDelegate.h */,
 				840444921B2EA16F00AE6B22 /* AppDelegate.m */,
 				84B6D65D1B3D10A6001B1A9B /* Main.storyboard */,
+				84B6D6631B410761001B1A9B /* LocationMapViewController.h */,
+				84B6D6641B410761001B1A9B /* LocationMapViewController.m */,
 				84753EAE1B3A47810056C66B /* Location.xcdatamodeld */,
 				840444941B2EA16F00AE6B22 /* ViewController.h */,
 				840444951B2EA16F00AE6B22 /* ViewController.m */,
@@ -362,6 +367,7 @@
 				8449586D1B3BD17A009D8BA1 /* CoreLocationController.m in Sources */,
 				844958641B3BBDCF009D8BA1 /* LocationListViewController.m in Sources */,
 				840444931B2EA16F00AE6B22 /* AppDelegate.m in Sources */,
+				84B6D6651B410761001B1A9B /* LocationMapViewController.m in Sources */,
 				840444901B2EA16F00AE6B22 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
