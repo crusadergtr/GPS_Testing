@@ -1,0 +1,49 @@
+PODS:
+  - ActionSheetPicker-3.0 (1.0.18)
+  - CHCSVParser (2.0.7)
+  - FrameAccessor (1.2.0)
+  - GoogleMaps (1.10.1)
+  - GPSKit (0.8.5)
+  - Kiwi (2.3.1)
+  - MagicalRecord (2.3.0)
+  - MZAppearance (1.1.5)
+  - MZFormSheetController (2.3.6):
+    - MZAppearance (~> 1.1.3)
+    - MZFormSheetController/Core (= 2.3.6)
+  - MZFormSheetController/Core (2.3.6):
+    - MZAppearance (~> 1.1.3)
+  - SevenSwitch (1.3.0)
+  - SIAlertView (1.3)
+  - SVProgressHUD (0.9)
+  - SWRevealViewController (1.0.8)
+
+DEPENDENCIES:
+  - ActionSheetPicker-3.0 (~> 1.0.9)
+  - CHCSVParser (~> 2.0.7)
+  - FrameAccessor (~> 1.2.0)
+  - GoogleMaps
+  - GPSKit
+  - Kiwi (~> 2.2)
+  - MagicalRecord (~> 2.1)
+  - MZFormSheetController (~> 2.3.4)
+  - SevenSwitch (~> 1.3.0)
+  - SIAlertView (~> 1.2)
+  - SVProgressHUD (~> 0.9)
+  - SWRevealViewController (~> 1.0.2)
+
+SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: 0e5828a565773ad8d21f837ae961ab163f4cd29d
+  CHCSVParser: 4e0d2f198acd9d7663e4981acecffabd4e3012c1
+  FrameAccessor: 3ef9f2f06ffb5fa826e653ac0afe630be526bc96
+  GoogleMaps: ebf08677f181d9c2dcdbd1721d206f02beccc9b1
+  GPSKit: c996920608109f35d4db6b9237293d4251a55481
+  Kiwi: f038a6c61f7a9e4d7766bff5717aa3b3fdb75f55
+  MagicalRecord: 89eb7d7ead39fb37f01c3d010665ee94d17f8dba
+  MZAppearance: 6e9dc64e42074c0a19812a327f590746c3283bab
+  MZFormSheetController: e3c0accfab12ed1f9ddf2c61bb8c0abfc6b3f87b
+  SevenSwitch: 4faf7584ea9fcfa053ab0375353531c402ed2bf0
+  SIAlertView: 20c794b55eaf44d888773ea51647cf8907723919
+  SVProgressHUD: 7038ae9d6a0bd2c87560d2699eba642eef82d41e
+  SWRevealViewController: 3a2b0d424b1f225d61ea5918416273936b3b6973
+
+COCOAPODS: 0.37.2

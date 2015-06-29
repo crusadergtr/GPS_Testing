@@ -10,10 +10,27 @@
 		840444901B2EA16F00AE6B22 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404448F1B2EA16F00AE6B22 /* main.m */; };
 		840444931B2EA16F00AE6B22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 840444921B2EA16F00AE6B22 /* AppDelegate.m */; };
 		840444961B2EA16F00AE6B22 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840444951B2EA16F00AE6B22 /* ViewController.m */; };
-		840444991B2EA16F00AE6B22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840444971B2EA16F00AE6B22 /* Main.storyboard */; };
 		8404449B1B2EA16F00AE6B22 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8404449A1B2EA16F00AE6B22 /* Images.xcassets */; };
 		8404449E1B2EA16F00AE6B22 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8404449C1B2EA16F00AE6B22 /* LaunchScreen.xib */; };
 		840444AA1B2EA16F00AE6B22 /* GPS_testTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 840444A91B2EA16F00AE6B22 /* GPS_testTests.m */; };
+		840444B41B2FAB0B00AE6B22 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840444B31B2FAB0B00AE6B22 /* CoreLocation.framework */; };
+		840444B61B2FB7D600AE6B22 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840444B51B2FB7D600AE6B22 /* CoreGraphics.framework */; };
+		840444B81B2FB7DE00AE6B22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840444B71B2FB7DE00AE6B22 /* UIKit.framework */; };
+		840444BA1B2FB7E700AE6B22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840444B91B2FB7E700AE6B22 /* Foundation.framework */; };
+		840444BC1B2FDC4600AE6B22 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840444BB1B2FDC4600AE6B22 /* MapKit.framework */; };
+		844958631B3BBDCF009D8BA1 /* LocationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844958571B3BBDCE009D8BA1 /* LocationDetailViewController.m */; };
+		844958641B3BBDCF009D8BA1 /* LocationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844958591B3BBDCE009D8BA1 /* LocationListViewController.m */; };
+		844958651B3BBDCF009D8BA1 /* LocationObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449585B1B3BBDCE009D8BA1 /* LocationObject.m */; };
+		844958661B3BBDCF009D8BA1 /* LocationObjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449585D1B3BBDCE009D8BA1 /* LocationObjectController.m */; };
+		8449586A1B3BBEBA009D8BA1 /* SavedLocations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 844958691B3BBEBA009D8BA1 /* SavedLocations.plist */; };
+		8449586D1B3BD17A009D8BA1 /* CoreLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449586C1B3BD17A009D8BA1 /* CoreLocationController.m */; };
+		84753E9F1B3929B80056C66B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84753E9E1B3929B80056C66B /* CoreData.framework */; };
+		84753EB01B3A47810056C66B /* Location.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84753EAE1B3A47810056C66B /* Location.xcdatamodeld */; };
+		84B6D65E1B3D10A6001B1A9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B6D65D1B3D10A6001B1A9B /* Main.storyboard */; };
+		84B6D6611B40CF0F001B1A9B /* icon_gps_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B6D65F1B40CF0F001B1A9B /* icon_gps_active.png */; };
+		84B6D6621B40CF0F001B1A9B /* icon_gps_inLocation.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B6D6601B40CF0F001B1A9B /* icon_gps_inLocation.png */; };
+		ABC37C8C7E5D26574A4C1653 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E1FA52371960AD109953C18 /* libPods.a */; };
+		B779316FE8BACFBA7CFED045 /* libPods-GPS_test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71AE6453BC99318CBC2A31CE /* libPods-GPS_test.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		12AB32934A92452A6A66ECFF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		13DE4628B946ECFF0A5EE11E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		2E1FA52371960AD109953C18 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		71AE6453BC99318CBC2A31CE /* libPods-GPS_test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GPS_test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8404448A1B2EA16F00AE6B22 /* GPS_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPS_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8404448E1B2EA16F00AE6B22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8404448F1B2EA16F00AE6B22 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -34,12 +55,32 @@
 		840444921B2EA16F00AE6B22 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		840444941B2EA16F00AE6B22 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		840444951B2EA16F00AE6B22 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		840444981B2EA16F00AE6B22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8404449A1B2EA16F00AE6B22 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8404449D1B2EA16F00AE6B22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		840444A31B2EA16F00AE6B22 /* GPS_testTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPS_testTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		840444A81B2EA16F00AE6B22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		840444A91B2EA16F00AE6B22 /* GPS_testTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPS_testTests.m; sourceTree = "<group>"; };
+		840444B31B2FAB0B00AE6B22 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		840444B51B2FB7D600AE6B22 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		840444B71B2FB7DE00AE6B22 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		840444B91B2FB7E700AE6B22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		840444BB1B2FDC4600AE6B22 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		844958571B3BBDCE009D8BA1 /* LocationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationDetailViewController.m; sourceTree = "<group>"; };
+		844958581B3BBDCE009D8BA1 /* LocationListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationListViewController.h; sourceTree = "<group>"; };
+		844958591B3BBDCE009D8BA1 /* LocationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationListViewController.m; sourceTree = "<group>"; };
+		8449585A1B3BBDCE009D8BA1 /* LocationObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationObject.h; sourceTree = "<group>"; };
+		8449585B1B3BBDCE009D8BA1 /* LocationObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationObject.m; sourceTree = "<group>"; };
+		8449585C1B3BBDCE009D8BA1 /* LocationObjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationObjectController.h; sourceTree = "<group>"; };
+		8449585D1B3BBDCE009D8BA1 /* LocationObjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationObjectController.m; sourceTree = "<group>"; };
+		844958601B3BBDCF009D8BA1 /* LocationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationDetailViewController.h; sourceTree = "<group>"; };
+		844958691B3BBEBA009D8BA1 /* SavedLocations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SavedLocations.plist; sourceTree = "<group>"; };
+		8449586B1B3BD17A009D8BA1 /* CoreLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreLocationController.h; sourceTree = "<group>"; };
+		8449586C1B3BD17A009D8BA1 /* CoreLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreLocationController.m; sourceTree = "<group>"; };
+		84753E9E1B3929B80056C66B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		84753EAF1B3A47810056C66B /* Location.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Location.xcdatamodel; sourceTree = "<group>"; };
+		84B6D65D1B3D10A6001B1A9B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		84B6D65F1B40CF0F001B1A9B /* icon_gps_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_gps_active.png; sourceTree = "<group>"; };
+		84B6D6601B40CF0F001B1A9B /* icon_gps_inLocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_gps_inLocation.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +88,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84753E9F1B3929B80056C66B /* CoreData.framework in Frameworks */,
+				840444BC1B2FDC4600AE6B22 /* MapKit.framework in Frameworks */,
+				840444BA1B2FB7E700AE6B22 /* Foundation.framework in Frameworks */,
+				840444B81B2FB7DE00AE6B22 /* UIKit.framework in Frameworks */,
+				840444B61B2FB7D600AE6B22 /* CoreGraphics.framework in Frameworks */,
+				840444B41B2FAB0B00AE6B22 /* CoreLocation.framework in Frameworks */,
+				ABC37C8C7E5D26574A4C1653 /* libPods.a in Frameworks */,
+				B779316FE8BACFBA7CFED045 /* libPods-GPS_test.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +109,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7141FF903CF877003BEA442B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				13DE4628B946ECFF0A5EE11E /* Pods.debug.xcconfig */,
+				12AB32934A92452A6A66ECFF /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		840444811B2EA16F00AE6B22 = {
 			isa = PBXGroup;
 			children = (
 				8404448C1B2EA16F00AE6B22 /* GPS_test */,
 				840444A61B2EA16F00AE6B22 /* GPS_testTests */,
 				8404448B1B2EA16F00AE6B22 /* Products */,
+				7141FF903CF877003BEA442B /* Pods */,
+				E762DF97BB65B38E6B6FDE61 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,11 +141,24 @@
 		8404448C1B2EA16F00AE6B22 /* GPS_test */ = {
 			isa = PBXGroup;
 			children = (
+				844958681B3BBDDA009D8BA1 /* Icon */,
+				844958691B3BBEBA009D8BA1 /* SavedLocations.plist */,
+				8449586B1B3BD17A009D8BA1 /* CoreLocationController.h */,
+				8449586C1B3BD17A009D8BA1 /* CoreLocationController.m */,
+				844958581B3BBDCE009D8BA1 /* LocationListViewController.h */,
+				844958591B3BBDCE009D8BA1 /* LocationListViewController.m */,
+				844958601B3BBDCF009D8BA1 /* LocationDetailViewController.h */,
+				844958571B3BBDCE009D8BA1 /* LocationDetailViewController.m */,
+				8449585A1B3BBDCE009D8BA1 /* LocationObject.h */,
+				8449585B1B3BBDCE009D8BA1 /* LocationObject.m */,
+				8449585C1B3BBDCE009D8BA1 /* LocationObjectController.h */,
+				8449585D1B3BBDCE009D8BA1 /* LocationObjectController.m */,
 				840444911B2EA16F00AE6B22 /* AppDelegate.h */,
 				840444921B2EA16F00AE6B22 /* AppDelegate.m */,
+				84B6D65D1B3D10A6001B1A9B /* Main.storyboard */,
+				84753EAE1B3A47810056C66B /* Location.xcdatamodeld */,
 				840444941B2EA16F00AE6B22 /* ViewController.h */,
 				840444951B2EA16F00AE6B22 /* ViewController.m */,
-				840444971B2EA16F00AE6B22 /* Main.storyboard */,
 				8404449A1B2EA16F00AE6B22 /* Images.xcassets */,
 				8404449C1B2EA16F00AE6B22 /* LaunchScreen.xib */,
 				8404448D1B2EA16F00AE6B22 /* Supporting Files */,
@@ -119,6 +192,30 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		844958681B3BBDDA009D8BA1 /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+				84B6D65F1B40CF0F001B1A9B /* icon_gps_active.png */,
+				84B6D6601B40CF0F001B1A9B /* icon_gps_inLocation.png */,
+			);
+			name = Icon;
+			sourceTree = "<group>";
+		};
+		E762DF97BB65B38E6B6FDE61 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84753E9E1B3929B80056C66B /* CoreData.framework */,
+				840444BB1B2FDC4600AE6B22 /* MapKit.framework */,
+				840444B91B2FB7E700AE6B22 /* Foundation.framework */,
+				840444B71B2FB7DE00AE6B22 /* UIKit.framework */,
+				840444B51B2FB7D600AE6B22 /* CoreGraphics.framework */,
+				840444B31B2FAB0B00AE6B22 /* CoreLocation.framework */,
+				2E1FA52371960AD109953C18 /* libPods.a */,
+				71AE6453BC99318CBC2A31CE /* libPods-GPS_test.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +223,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 840444AD1B2EA16F00AE6B22 /* Build configuration list for PBXNativeTarget "GPS_test" */;
 			buildPhases = (
+				B6FFAD035241793CC2FD22C6 /* Check Pods Manifest.lock */,
 				840444861B2EA16F00AE6B22 /* Sources */,
 				840444871B2EA16F00AE6B22 /* Frameworks */,
 				840444881B2EA16F00AE6B22 /* Resources */,
+				AF87A43F255DA5847612FDC0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,9 +298,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				840444991B2EA16F00AE6B22 /* Main.storyboard in Resources */,
+				8449586A1B3BBEBA009D8BA1 /* SavedLocations.plist in Resources */,
 				8404449E1B2EA16F00AE6B22 /* LaunchScreen.xib in Resources */,
+				84B6D6611B40CF0F001B1A9B /* icon_gps_active.png in Resources */,
 				8404449B1B2EA16F00AE6B22 /* Images.xcassets in Resources */,
+				84B6D65E1B3D10A6001B1A9B /* Main.storyboard in Resources */,
+				84B6D6621B40CF0F001B1A9B /* icon_gps_inLocation.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,12 +316,51 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AF87A43F255DA5847612FDC0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GPS_test/Pods-GPS_test-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B6FFAD035241793CC2FD22C6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		840444861B2EA16F00AE6B22 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				840444961B2EA16F00AE6B22 /* ViewController.m in Sources */,
+				844958651B3BBDCF009D8BA1 /* LocationObject.m in Sources */,
+				84753EB01B3A47810056C66B /* Location.xcdatamodeld in Sources */,
+				844958661B3BBDCF009D8BA1 /* LocationObjectController.m in Sources */,
+				844958631B3BBDCF009D8BA1 /* LocationDetailViewController.m in Sources */,
+				8449586D1B3BD17A009D8BA1 /* CoreLocationController.m in Sources */,
+				844958641B3BBDCF009D8BA1 /* LocationListViewController.m in Sources */,
 				840444931B2EA16F00AE6B22 /* AppDelegate.m in Sources */,
 				840444901B2EA16F00AE6B22 /* main.m in Sources */,
 			);
@@ -244,14 +385,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		840444971B2EA16F00AE6B22 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				840444981B2EA16F00AE6B22 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8404449C1B2EA16F00AE6B22 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -345,9 +478,11 @@
 		};
 		840444AE1B2EA16F00AE6B22 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13DE4628B946ECFF0A5EE11E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GPS_test/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -355,9 +490,11 @@
 		};
 		840444AF1B2EA16F00AE6B22 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12AB32934A92452A6A66ECFF /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GPS_test/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -416,6 +553,7 @@
 				840444AF1B2EA16F00AE6B22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		840444B01B2EA16F00AE6B22 /* Build configuration list for PBXNativeTarget "GPS_testTests" */ = {
 			isa = XCConfigurationList;
@@ -424,8 +562,22 @@
 				840444B21B2EA16F00AE6B22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		84753EAE1B3A47810056C66B /* Location.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				84753EAF1B3A47810056C66B /* Location.xcdatamodel */,
+			);
+			currentVersion = 84753EAF1B3A47810056C66B /* Location.xcdatamodel */;
+			path = Location.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 840444821B2EA16F00AE6B22 /* Project object */;
 }
