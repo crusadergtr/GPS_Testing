@@ -11,6 +11,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import <MapKit/MapKit.h>
 #import "AppDelegate.h"
+#import "LocationService.h"
 
 @interface LocationDetailViewController ()
 - (void)configureView;
@@ -20,7 +21,6 @@
 @end
 
 @implementation LocationDetailViewController
-    CLLocationManager *manager;
     GMSMapView *mapView_;
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -32,14 +32,6 @@
 }
 
 
-- (void)setLocation:(LocationObject *) newLocation
-{
-    if (_location != newLocation) {
-        _location = newLocation;
-        
-        // Update the view.
-        [self configureView];
-    }}
 
 
 - (void)viewDidLoad
@@ -49,17 +41,14 @@
     self.saveButton.enabled = NO;
     LocationObject *theLocation = self.location;
     
-    manager = [[CLLocationManager alloc] init];
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.886376
-                                                            longitude:151.229407
-                                                                 zoom:10];
+    //manager = [[CLLocationManager alloc] init];
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:[LocationService sharedInstance].currentLocation.coordinate.latitude
+                                                            longitude:[LocationService sharedInstance].currentLocation.coordinate.longitude
+                                                                 zoom:17];
     mapView_ = [GMSMapView mapWithFrame:CGRectMake(0, 242, 375, 300) camera:camera];
     mapView_.myLocationEnabled = YES;
     [self.view addSubview:mapView_];
     
-    manager.delegate = self;
-    manager.desiredAccuracy = kCLLocationAccuracyBest;
-    [manager startUpdatingLocation];
     
     GMSMarker *marker = [[GMSMarker alloc] init];
     marker.position = CLLocationCoordinate2DMake([theLocation.latitude doubleValue], [theLocation.longitude doubleValue]);
@@ -119,10 +108,6 @@
         self.distanceLabel.text = [NSString stringWithFormat:@"%.0f m", [location1 distanceFromLocation:location2]];
     }
     
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:newLocation.coordinate.latitude
-                                                            longitude:newLocation.coordinate.longitude
-                                                                 zoom:17];
-    [mapView_ animateToCameraPosition:camera];
     }
 
 - (void)didReceiveMemoryWarning
@@ -143,11 +128,13 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [manager stopUpdatingLocation];
+   // [manager stopUpdatingLocation];
+    [[LocationService sharedInstance] startUpdatingLocation];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [manager startUpdatingLocation];
+  //  [manager startUpdatingLocation];
+    [[LocationService sharedInstance] stopUpdatingLocation];
 }
 
 @end

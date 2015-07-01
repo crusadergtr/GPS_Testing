@@ -42,9 +42,6 @@
                     <navigationItem key="navigationItem" id="I2A-gW-rWt"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="887"/>
-                    <connections>
-                        <outlet property="locationInformation" destination="cXY-pV-dsY" id="32o-Ab-HBT"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Du2-o7-jRn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
