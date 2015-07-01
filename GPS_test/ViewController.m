@@ -16,6 +16,7 @@
 #import "LocationObject.h"
 #import "LocationObjectController.h"
 #import "LocationListViewController.h"
+#import "LocationService.h"
 
 @interface ViewController () <CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *latitude;
@@ -29,7 +30,6 @@
 @end
 
 @implementation ViewController {
-    CLLocationManager *manager;
     CLGeocoder *geocoder;
     CLPlacemark *placemark;
     GMSMapView *mapView_;
@@ -38,20 +38,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [LocationService sharedInstance];
+    [[LocationService sharedInstance] addObserver:self forKeyPath:@"currentLocation" options:NSKeyValueObservingOptionNew context:nil];
+    //[[LocationService sharedInstance] startUpdatingLocation];
     // Do any additional setup after loading the view, typically from a nib.
     
     
-    manager = [[CLLocationManager alloc] init];
-    geocoder = [[CLGeocoder alloc] init];
     self.myMap.delegate = self;
     [self.myMap setShowsUserLocation:YES];
-    [manager requestWhenInUseAuthorization];
+  //  [manager requestWhenInUseAuthorization];
     
-    manager.delegate = self;
-//    manager.distanceFilter = 10;
-    manager.desiredAccuracy = kCLLocationAccuracyBest;
-    
-    [manager startUpdatingLocation];
 
     // Google MAP
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.886376
@@ -71,19 +67,6 @@
 //    marker.map = mapView_;
     
 
-    if([CLLocationManager locationServicesEnabled] && [CLLocationManager authorizationStatus]==kCLAuthorizationStatusDenied)
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"App Permission Denied"
-                                                        message:@"To re-enable, please go to Settings and turn on Location Service for this app."
-                                                       delegate:self
-                                              cancelButtonTitle:@"Cancel"
-                                              otherButtonTitles:@"Setting", nil];
-        [alert show];
-    }
-    
-    self.locationDataController = [[LocationObjectController alloc] init];
-    
-    NSLog(@"view Loaded");
     
 }
 
@@ -103,10 +86,20 @@
 //    }
 //}
 
+- (void) observeValueForKeyPath:(nullable NSString *)keyPath ofObject:(nullable id)object change:(nullable NSDictionary *)change context:(nullable void *)context {
+    if ([keyPath isEqualToString:@"currentLocation"]) {
+        self.latitude.text = [NSString stringWithFormat:@"%f", [LocationService sharedInstance].currentLocation.coordinate.latitude];
+        self.longitude.text = [NSString stringWithFormat:@"%f", [LocationService sharedInstance].currentLocation.coordinate.longitude];
+        self.Accuracy.text = [NSString stringWithFormat:@"%.0f m", [LocationService sharedInstance].currentLocation.horizontalAccuracy];
+    }
+}
+
+
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     CLLocationCoordinate2D myLocation = [userLocation coordinate];
     MKCoordinateRegion zoomRegion = MKCoordinateRegionMakeWithDistance(myLocation, 100, 100);
     [self.myMap setRegion:zoomRegion animated:NO];
+    
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -116,50 +109,15 @@
 
 #pragma mark CLLocationManagerDelegate Methods
 
--(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    NSLog(@"Error: %@", error);
-    NSLog(@"Fail to get location : (");
-}
-
--(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
-    NSLog(@"Location: %@", newLocation);
-    CLLocation *currentlocation = newLocation;
-    
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:newLocation.coordinate.latitude
-                                                            longitude:newLocation.coordinate.longitude
-                                                                 zoom:17];
-    [mapView_ animateToCameraPosition:camera];
-    
-    if (currentlocation != nil) {
-        self.latitude.text = [NSString stringWithFormat:@"%f", currentlocation.coordinate.latitude];
-        self.longitude.text = [NSString stringWithFormat:@"%f", currentlocation.coordinate.longitude];
-        self.Accuracy.text = [NSString stringWithFormat:@"%.0f m", currentlocation.horizontalAccuracy];
-        
-    }
-    
-//    [geocoder reverseGeocodeLocation:currentlocation completionHandler:^(NSArray *placemarks, NSError *error) {
-//        if (error == nil && [placemarks count] > 0) {
-//            placemark =[placemarks lastObject];
-//            
-//            self.address.text = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
-//                                 placemark.subThoroughfare, placemark.thoroughfare,
-//                                 placemark.postalCode, placemark.locality,
-//                                 placemark.administrativeArea,
-//                                 placemark.country];
-//        } else {
-//            NSLog(@"%@", error.debugDescription);
-//        }
-//    }];
-    
-    
-}
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [manager stopUpdatingLocation];
+//    [manager stopUpdatingLocation];
+    [[LocationService sharedInstance] stopUpdatingLocation];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [manager startUpdatingLocation];
+//    [manager startUpdatingLocation];
+    [[LocationService sharedInstance] startUpdatingLocation];
 }
 
 - (IBAction)saveLocation:(id)sender {
