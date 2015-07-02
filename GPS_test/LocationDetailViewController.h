@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "LocationObjectController.h"
 
 @class LocationObject;
 
@@ -22,9 +21,6 @@
 @property (strong, nonatomic) LocationObject *location;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 
-
-
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
-//@property (strong, nonatomic) IBOutlet MKMapView *locationMapView;
 
 @end

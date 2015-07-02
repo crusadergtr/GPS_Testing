@@ -28,7 +28,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="showDetailInformation:" destination="2Oh-yz-wqk" eventType="touchUpInside" id="jKs-Vl-bVm"/>
+                                            <action selector="showLocationDetail:" destination="2Oh-yz-wqk" eventType="touchUpInside" id="4Ws-3w-MSB"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -42,6 +42,10 @@
                     <navigationItem key="navigationItem" id="I2A-gW-rWt"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="887"/>
+                    <connections>
+                        <outlet property="locationDetailButton" destination="JOe-op-8S0" id="slj-fP-Nmk"/>
+                        <outlet property="locationDetailView" destination="cXY-pV-dsY" id="9sf-8H-paY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Du2-o7-jRn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -74,13 +78,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0S-hs-kjn">
-                                <rect key="frame" x="112" y="589" width="150" height="30"/>
+                                <rect key="frame" x="177" y="207" width="150" height="30"/>
                                 <animations/>
-                                <state key="normal">
+                                <state key="normal" title="Show Location List">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="pressButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Wym-tX-RMg"/>
+                                    <segue destination="Irz-QB-luc" kind="show" identifier="ShowLocations" id="VVF-sr-ysg"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Accuracy:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjc-SR-Vol">
@@ -125,12 +129,18 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IHb-re-hwC">
-                                <rect key="frame" x="0.0" y="233" width="375" height="200"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vw6-2g-swB">
+                                <rect key="frame" x="38" y="207" width="98" height="30"/>
                                 <animations/>
-                            </mapView>
+                                <state key="normal" title="Save Location">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveLocation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="laQ-ZO-qec"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RxI-7f-eMf">
-                                <rect key="frame" x="287" y="77" width="59" height="53"/>
+                                <rect key="frame" x="268" y="104" width="59" height="53"/>
                                 <animations/>
                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                 <state key="normal" image="icon_gps_active.png">
@@ -141,42 +151,19 @@
                                     <segue destination="2Oh-yz-wqk" kind="push" id="387-tZ-BiT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vw6-2g-swB">
-                                <rect key="frame" x="138" y="186" width="98" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Save Location">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveLocation:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="laQ-ZO-qec"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Main" id="qT9-c2-vai">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="LOH-yb-cUq">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iGa-Oc-m4w">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <animations/>
-                                <state key="normal" title="List">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Irz-QB-luc" kind="push" id="kvm-wS-9sJ"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Main" id="qT9-c2-vai"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="Accuracy" destination="esg-B9-oXL" id="Mta-Ud-4hj"/>
                         <outlet property="address" destination="QY9-H4-raB" id="XOO-Ap-dfx"/>
                         <outlet property="latitude" destination="WKH-KI-rOi" id="PIf-lR-2xO"/>
                         <outlet property="longitude" destination="0jw-bc-7EI" id="OkG-vA-7vP"/>
-                        <outlet property="myMap" destination="IHb-re-hwC" id="dAJ-Ce-sf1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

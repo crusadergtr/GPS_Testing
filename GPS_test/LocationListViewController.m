@@ -8,26 +8,14 @@
 
 #import "LocationListViewController.h"
 #import "LocationDetailViewController.h"
-#import "LocationObject.h"
-#import "LocationObjectController.h"
+#import "LocationService.h"
 
-
-@class LocationObjectController;
 
 @interface LocationListViewController ()
 
 @end
 
 @implementation LocationListViewController
-
-
-//@synthesize locationDataController = _locationDataController;
-
-
-- (LocationObjectController *)locationDataController{
-    if (!_locationDataController) _locationDataController = [[LocationObjectController alloc] init];
-    return _locationDataController;
-}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -43,9 +31,6 @@
     [super viewDidLoad];
      // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,7 +49,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.locationDataController countOfList];
+    return [[LocationService sharedInstance] countOfList];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,7 +64,7 @@
         [formatter setDateStyle:NSDateFormatterMediumStyle];
     }
     
-    LocationObject *locationAtIndex = [self.locationDataController objectInListAtIndex:indexPath.row];
+    LocationObject *locationAtIndex = [[LocationService sharedInstance] objectInListAtIndex:indexPath.row];
     [[cell textLabel] setText:locationAtIndex.locationName];
 //    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"(%@, %@)",locationAtIndex.latitude,locationAtIndex.longitude]];
     [[cell detailTextLabel] setText:[NSString stringWithFormat:@"(%@, %@)",locationAtIndex.latitude,locationAtIndex.longitude]];
@@ -105,9 +90,9 @@
 {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.locationDataController removeObjectAtIndex:indexPath.row];
+        [[LocationService sharedInstance] removeObjectAtIndex:indexPath.row];
         [[self tableView] reloadData];
-        [self.locationDataController saveToPlist];
+        [[LocationService sharedInstance] saveToPlist];
      }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
      }   
@@ -137,7 +122,7 @@
     if ([[segue identifier] isEqualToString:@"ShowLocationDetails"]) {
         LocationDetailViewController *detailViewController = [segue destinationViewController];
         
-        detailViewController.location = [self.locationDataController objectInListAtIndex:[self.tableView indexPathForSelectedRow].row];
+        detailViewController.location = [[LocationService sharedInstance] objectInListAtIndex:[self.tableView indexPathForSelectedRow].row];
         self.selectedindex = [self.tableView indexPathForSelectedRow];
         NSLog(@"segue location");
     }
@@ -154,9 +139,9 @@
                                                      accuracy:detailcontroller.location.accuracy
                                                          date:detailcontroller.location.date];
     
-    [self.locationDataController editLocation:self.selectedindex.row :editedlocation];
+    [[LocationService sharedInstance] editLocation:self.selectedindex.row :editedlocation];
     [self.tableView reloadData];
-    [self.locationDataController saveToPlist];
+    [[LocationService sharedInstance] saveToPlist];
     }
 }
 

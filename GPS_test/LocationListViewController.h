@@ -13,6 +13,5 @@
 
 @interface LocationListViewController : UITableViewController
 
-@property (strong, nonatomic) LocationObjectController *locationDataController;
 @property (strong, nonatomic) NSIndexPath *selectedindex;
 @end

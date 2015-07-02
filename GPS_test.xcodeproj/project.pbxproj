@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3451B1C31B43CB4F0070DC44 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3451B1C21B43CB4F0070DC44 /* LocationService.m */; };
+		3451B1C61B4411880070DC44 /* LocationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3451B1C51B4411880070DC44 /* LocationMapViewController.m */; };
 		840444901B2EA16F00AE6B22 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404448F1B2EA16F00AE6B22 /* main.m */; };
 		840444931B2EA16F00AE6B22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 840444921B2EA16F00AE6B22 /* AppDelegate.m */; };
 		840444961B2EA16F00AE6B22 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840444951B2EA16F00AE6B22 /* ViewController.m */; };
@@ -22,11 +23,7 @@
 		844958631B3BBDCF009D8BA1 /* LocationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844958571B3BBDCE009D8BA1 /* LocationDetailViewController.m */; };
 		844958641B3BBDCF009D8BA1 /* LocationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844958591B3BBDCE009D8BA1 /* LocationListViewController.m */; };
 		844958651B3BBDCF009D8BA1 /* LocationObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449585B1B3BBDCE009D8BA1 /* LocationObject.m */; };
-		844958661B3BBDCF009D8BA1 /* LocationObjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449585D1B3BBDCE009D8BA1 /* LocationObjectController.m */; };
-		8449586A1B3BBEBA009D8BA1 /* SavedLocations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 844958691B3BBEBA009D8BA1 /* SavedLocations.plist */; };
-		8449586D1B3BD17A009D8BA1 /* CoreLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449586C1B3BD17A009D8BA1 /* CoreLocationController.m */; };
 		84753E9F1B3929B80056C66B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84753E9E1B3929B80056C66B /* CoreData.framework */; };
-		84753EB01B3A47810056C66B /* Location.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84753EAE1B3A47810056C66B /* Location.xcdatamodeld */; };
 		84B6D65E1B3D10A6001B1A9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B6D65D1B3D10A6001B1A9B /* Main.storyboard */; };
 		84B6D6611B40CF0F001B1A9B /* icon_gps_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B6D65F1B40CF0F001B1A9B /* icon_gps_active.png */; };
 		84B6D6621B40CF0F001B1A9B /* icon_gps_inLocation.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B6D6601B40CF0F001B1A9B /* icon_gps_inLocation.png */; };
@@ -50,6 +47,8 @@
 		2E1FA52371960AD109953C18 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3451B1C11B43CB4F0070DC44 /* LocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
 		3451B1C21B43CB4F0070DC44 /* LocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
+		3451B1C41B4411880070DC44 /* LocationMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationMapViewController.h; sourceTree = "<group>"; };
+		3451B1C51B4411880070DC44 /* LocationMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationMapViewController.m; sourceTree = "<group>"; };
 		71AE6453BC99318CBC2A31CE /* libPods-GPS_test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GPS_test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8404448A1B2EA16F00AE6B22 /* GPS_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPS_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8404448E1B2EA16F00AE6B22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -73,14 +72,8 @@
 		844958591B3BBDCE009D8BA1 /* LocationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationListViewController.m; sourceTree = "<group>"; };
 		8449585A1B3BBDCE009D8BA1 /* LocationObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationObject.h; sourceTree = "<group>"; };
 		8449585B1B3BBDCE009D8BA1 /* LocationObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationObject.m; sourceTree = "<group>"; };
-		8449585C1B3BBDCE009D8BA1 /* LocationObjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationObjectController.h; sourceTree = "<group>"; };
-		8449585D1B3BBDCE009D8BA1 /* LocationObjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationObjectController.m; sourceTree = "<group>"; };
 		844958601B3BBDCF009D8BA1 /* LocationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationDetailViewController.h; sourceTree = "<group>"; };
-		844958691B3BBEBA009D8BA1 /* SavedLocations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SavedLocations.plist; sourceTree = "<group>"; };
-		8449586B1B3BD17A009D8BA1 /* CoreLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreLocationController.h; sourceTree = "<group>"; };
-		8449586C1B3BD17A009D8BA1 /* CoreLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreLocationController.m; sourceTree = "<group>"; };
 		84753E9E1B3929B80056C66B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		84753EAF1B3A47810056C66B /* Location.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Location.xcdatamodel; sourceTree = "<group>"; };
 		84B6D65D1B3D10A6001B1A9B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		84B6D65F1B40CF0F001B1A9B /* icon_gps_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_gps_active.png; sourceTree = "<group>"; };
 		84B6D6601B40CF0F001B1A9B /* icon_gps_inLocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_gps_inLocation.png; sourceTree = "<group>"; };
@@ -145,25 +138,21 @@
 			isa = PBXGroup;
 			children = (
 				844958681B3BBDDA009D8BA1 /* Icon */,
-				844958691B3BBEBA009D8BA1 /* SavedLocations.plist */,
-				8449586B1B3BD17A009D8BA1 /* CoreLocationController.h */,
-				8449586C1B3BD17A009D8BA1 /* CoreLocationController.m */,
+				84B6D65D1B3D10A6001B1A9B /* Main.storyboard */,
+				840444911B2EA16F00AE6B22 /* AppDelegate.h */,
+				840444921B2EA16F00AE6B22 /* AppDelegate.m */,
+				840444941B2EA16F00AE6B22 /* ViewController.h */,
+				840444951B2EA16F00AE6B22 /* ViewController.m */,
+				8449585A1B3BBDCE009D8BA1 /* LocationObject.h */,
+				8449585B1B3BBDCE009D8BA1 /* LocationObject.m */,
+				3451B1C11B43CB4F0070DC44 /* LocationService.h */,
+				3451B1C21B43CB4F0070DC44 /* LocationService.m */,
+				3451B1C41B4411880070DC44 /* LocationMapViewController.h */,
+				3451B1C51B4411880070DC44 /* LocationMapViewController.m */,
 				844958581B3BBDCE009D8BA1 /* LocationListViewController.h */,
 				844958591B3BBDCE009D8BA1 /* LocationListViewController.m */,
 				844958601B3BBDCF009D8BA1 /* LocationDetailViewController.h */,
 				844958571B3BBDCE009D8BA1 /* LocationDetailViewController.m */,
-				8449585A1B3BBDCE009D8BA1 /* LocationObject.h */,
-				8449585B1B3BBDCE009D8BA1 /* LocationObject.m */,
-				8449585C1B3BBDCE009D8BA1 /* LocationObjectController.h */,
-				8449585D1B3BBDCE009D8BA1 /* LocationObjectController.m */,
-				840444911B2EA16F00AE6B22 /* AppDelegate.h */,
-				840444921B2EA16F00AE6B22 /* AppDelegate.m */,
-				84B6D65D1B3D10A6001B1A9B /* Main.storyboard */,
-				84753EAE1B3A47810056C66B /* Location.xcdatamodeld */,
-				840444941B2EA16F00AE6B22 /* ViewController.h */,
-				840444951B2EA16F00AE6B22 /* ViewController.m */,
-				3451B1C11B43CB4F0070DC44 /* LocationService.h */,
-				3451B1C21B43CB4F0070DC44 /* LocationService.m */,
 				8404449A1B2EA16F00AE6B22 /* Images.xcassets */,
 				8404449C1B2EA16F00AE6B22 /* LaunchScreen.xib */,
 				8404448D1B2EA16F00AE6B22 /* Supporting Files */,
@@ -303,7 +292,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8449586A1B3BBEBA009D8BA1 /* SavedLocations.plist in Resources */,
 				8404449E1B2EA16F00AE6B22 /* LaunchScreen.xib in Resources */,
 				84B6D6611B40CF0F001B1A9B /* icon_gps_active.png in Resources */,
 				8404449B1B2EA16F00AE6B22 /* Images.xcassets in Resources */,
@@ -361,14 +349,12 @@
 			files = (
 				840444961B2EA16F00AE6B22 /* ViewController.m in Sources */,
 				844958651B3BBDCF009D8BA1 /* LocationObject.m in Sources */,
-				84753EB01B3A47810056C66B /* Location.xcdatamodeld in Sources */,
-				844958661B3BBDCF009D8BA1 /* LocationObjectController.m in Sources */,
 				844958631B3BBDCF009D8BA1 /* LocationDetailViewController.m in Sources */,
-				8449586D1B3BD17A009D8BA1 /* CoreLocationController.m in Sources */,
 				3451B1C31B43CB4F0070DC44 /* LocationService.m in Sources */,
 				844958641B3BBDCF009D8BA1 /* LocationListViewController.m in Sources */,
 				840444931B2EA16F00AE6B22 /* AppDelegate.m in Sources */,
 				840444901B2EA16F00AE6B22 /* main.m in Sources */,
+				3451B1C61B4411880070DC44 /* LocationMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,19 +557,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		84753EAE1B3A47810056C66B /* Location.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				84753EAF1B3A47810056C66B /* Location.xcdatamodel */,
-			);
-			currentVersion = 84753EAF1B3A47810056C66B /* Location.xcdatamodel */;
-			path = Location.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 840444821B2EA16F00AE6B22 /* Project object */;
 }
