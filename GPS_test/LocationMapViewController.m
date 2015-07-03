@@ -7,51 +7,111 @@
 //
 
 #import "LocationMapViewController.h"
-#import <GoogleMaps/GoogleMaps.h>
+//#import <GoogleMaps/GoogleMaps.h>
 #import "LocationObject.h"
+#import "LocationService.h"
 
 
 @interface LocationMapViewController ()
-
 @end
 
-@implementation LocationMapViewController
-GMSMapView *mapView;
-
-
-
+@implementation LocationMapViewController {
+    BOOL _markerSelected;
+    BOOL _detailShown;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.886376
-                                                            longitude:151.229407
-                                                                 zoom:14];
-    mapView = [GMSMapView mapWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) camera:camera];
-    mapView.myLocationEnabled = YES;
-    //    [self.view addSubview:mapView];
-  [self.view insertSubview:mapView belowSubview:self.locationDetailView];
+    [[LocationService sharedInstance] addObserver:self forKeyPath:@"atLocation" options:NSKeyValueObservingOptionNew context:nil];
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:[LocationService sharedInstance].currentLocation.coordinate.latitude
+                                                            longitude:[LocationService sharedInstance].currentLocation.coordinate.longitude
+                                                                 zoom:17];
+    self.mapView = [GMSMapView mapWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) camera:camera];
+    self.mapView.myLocationEnabled = YES;
+    self.mapView.settings.myLocationButton = YES;
+    self.mapView.delegate = self;
+    [self.view insertSubview:self.mapView belowSubview:self.locationDetailView];
     
-    //    NSLog(@"tt: %lu",(unsigned long)[self.locationDataController countOfList]);
-    
-//    for (NSInteger i = 0; i < [self.locationDataController countOfList]; i++) {
-//        [self.locationDataController objectInListAtIndex:i];
-//        LocationObject *locationAtIndex = [self.locationDataController objectInListAtIndex:i];
-//        NSLog(@"%@",locationAtIndex.longitude);
-//        GMSMarker *marker = [[GMSMarker alloc] init];
-//        marker.position = CLLocationCoordinate2DMake([locationAtIndex.latitude doubleValue], [locationAtIndex.longitude doubleValue]);
-//        marker.title = locationAtIndex.locationName;
-//        marker.map = mapView;
-//    }
-//    
+    for (NSInteger i = 0; i < [[LocationService sharedInstance] countOfList]; i++) {
+        [[LocationService sharedInstance] objectInListAtIndex:i];
+        LocationObject *locationAtIndex = [[LocationService sharedInstance] objectInListAtIndex:i];
+        GMSMarker *marker = [[GMSMarker alloc] init];
+        marker.position = CLLocationCoordinate2DMake([locationAtIndex.latitude doubleValue], [locationAtIndex.longitude doubleValue]);
+        marker.title = locationAtIndex.locationName;
+        marker.map = self.mapView;
+        marker.icon = [UIImage imageNamed:@"icon_gps_active"];
+        marker.userData = locationAtIndex;
+    }
+    _markerSelected = NO;
+
 }
 
-- (IBAction)showLocationDetail:(id)sender{
-    
+- (void) observeValueForKeyPath:(nullable NSString *)keyPath ofObject:(nullable id)object change:(nullable NSDictionary *)change context:(nullable void *)context {
+    if ([keyPath isEqualToString:@"atLocation"]) {
+        //self.selectedLocationLabel.text = [LocationService sharedInstance].atLocation.locationName;
+    }
 }
 
+
+- (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker
+{
+    LocationObject *obj = marker.userData;
+    //self.selectedLocationLabel.text = obj.locationName;
+    if (obj == [LocationService sharedInstance].atLocation) {
+        NSLog(@"same marker");
+        if (_markerSelected == NO) {
+            [self open];
+            NSLog(@"open info");
+            _markerSelected = YES;
+        } else if (_markerSelected == YES){
+            [self close];
+            NSLog(@"close info");
+            _markerSelected = NO;
+        }
+    } else if (obj != [LocationService sharedInstance].atLocation) {
+        NSLog(@"not same marker");
+        [LocationService sharedInstance].atLocation = obj;
+        
+        if (_markerSelected == NO) {
+            NSLog(@"open info");
+            [self open];
+            _markerSelected = YES;
+        } else if (_markerSelected == YES){
+            NSLog(@"change info");
+            _markerSelected = YES;
+        }
+    }
+    
+    return YES;
+}
+
+- (void)open {
+            CGRect existingFrame = self.locationDetailView.frame;
+    NSLog(@"a= %f",existingFrame.origin.y);
+            existingFrame.origin.y = self.locationDetailView.frame.origin.y - 60;
+//            [UIView animateWithDuration:0.3 animations:^{
+//                self.locationDetailView.frame = existingFrame;
+//            }];
+    [UIView animateKeyframesWithDuration:0.3 delay:0 options:UIViewKeyframeAnimationOptionCalculationModeCubic animations:^{
+        self.locationDetailView.frame = existingFrame;
+        [self.distanceToSelectedLocation setText:@"TEST"];
+    } completion:^(BOOL finished){
+        //self.selectedLocationLabel.text = @"SSS";
+        //[self.distanceToSelectedLocation setText:@"TEST"];
+    }];
+}
+
+- (void)close {
+    CGRect existingFrame = self.locationDetailView.frame;
+     NSLog(@"b= %f",existingFrame.origin.y);
+    existingFrame.origin.y = self.locationDetailView.frame.origin.y + 60;
+    [UIView animateWithDuration:0.3 animations:^{
+        self.locationDetailView.frame = existingFrame;
+    }];
+}
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [[LocationService sharedInstance] removeObserver:self forKeyPath:@"atLocation"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -67,19 +127,5 @@ GMSMapView *mapView;
  }
  */
 
-- (void)markMaker{
-    
-}
 
-- (IBAction)showDetailInformation:(id)sender {
-    if(self.locationDetailView.frame.origin.y == 587) {
-        [UIView animateWithDuration:0.2f animations:^{
-            self.locationDetailView.frame = CGRectMake(0,367, 375, 300);
-        }];
-    } else if (self.locationDetailView.frame.origin.y == 367) {
-        [UIView animateWithDuration:0.2f animations:^{
-            self.locationDetailView.frame = CGRectMake(0,587, 375, 300);
-        }];
-    }
-}
 @end

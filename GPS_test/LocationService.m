@@ -35,6 +35,7 @@
         [self initializeDefaultDataList];
         [self initializeFromPlist];
         NSLog(@"Initialise Location");
+        self.atLocation = nil;
     }
     return self;
 }

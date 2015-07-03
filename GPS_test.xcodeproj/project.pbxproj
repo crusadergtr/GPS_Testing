@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3451B1C31B43CB4F0070DC44 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3451B1C21B43CB4F0070DC44 /* LocationService.m */; };
 		3451B1C61B4411880070DC44 /* LocationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3451B1C51B4411880070DC44 /* LocationMapViewController.m */; };
+		3451B1C81B44F3E70070DC44 /* icon_gps_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3451B1C71B44F3E70070DC44 /* icon_gps_active@2x.png */; };
 		840444901B2EA16F00AE6B22 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404448F1B2EA16F00AE6B22 /* main.m */; };
 		840444931B2EA16F00AE6B22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 840444921B2EA16F00AE6B22 /* AppDelegate.m */; };
 		840444961B2EA16F00AE6B22 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840444951B2EA16F00AE6B22 /* ViewController.m */; };
@@ -49,6 +50,7 @@
 		3451B1C21B43CB4F0070DC44 /* LocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
 		3451B1C41B4411880070DC44 /* LocationMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationMapViewController.h; sourceTree = "<group>"; };
 		3451B1C51B4411880070DC44 /* LocationMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationMapViewController.m; sourceTree = "<group>"; };
+		3451B1C71B44F3E70070DC44 /* icon_gps_active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_gps_active@2x.png"; sourceTree = "<group>"; };
 		71AE6453BC99318CBC2A31CE /* libPods-GPS_test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GPS_test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8404448A1B2EA16F00AE6B22 /* GPS_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPS_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8404448E1B2EA16F00AE6B22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				84B6D65F1B40CF0F001B1A9B /* icon_gps_active.png */,
+				3451B1C71B44F3E70070DC44 /* icon_gps_active@2x.png */,
 				84B6D6601B40CF0F001B1A9B /* icon_gps_inLocation.png */,
 			);
 			name = Icon;
@@ -294,6 +297,7 @@
 			files = (
 				8404449E1B2EA16F00AE6B22 /* LaunchScreen.xib in Resources */,
 				84B6D6611B40CF0F001B1A9B /* icon_gps_active.png in Resources */,
+				3451B1C81B44F3E70070DC44 /* icon_gps_active@2x.png in Resources */,
 				8404449B1B2EA16F00AE6B22 /* Images.xcassets in Resources */,
 				84B6D65E1B3D10A6001B1A9B /* Main.storyboard in Resources */,
 				84B6D6621B40CF0F001B1A9B /* icon_gps_inLocation.png in Resources */,

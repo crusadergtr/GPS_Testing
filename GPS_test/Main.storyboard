@@ -4,6 +4,12 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Light</string>
+            <string>HelveticaNeue-Light</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Location Map View Controller-->
         <scene sceneID="be2-8t-R8H">
@@ -14,23 +20,40 @@
                         <viewControllerLayoutGuide type="bottom" id="aqe-Nk-T7u"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="i54-vn-nqu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="887"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1067"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cXY-pV-dsY">
-                                <rect key="frame" x="0.0" y="587" width="375" height="300"/>
+                                <rect key="frame" x="0.0" y="667" width="375" height="400"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOe-op-8S0">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C4z-RX-WaW">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LB1-nb-YKN">
+                                                <rect key="frame" x="20" y="20" width="240" height="21"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" red="0.32156862749999998" green="0.32156862749999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeC-NE-0ay">
+                                                <rect key="frame" x="280" y="20" width="50" height="20"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                                <color key="textColor" red="0.070588238540000001" green="0.5176470876" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOe-op-8S0">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                                <animations/>
+                                                <state key="normal">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
                                         <animations/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="showLocationDetail:" destination="2Oh-yz-wqk" eventType="touchUpInside" id="4Ws-3w-MSB"/>
-                                        </connections>
-                                    </button>
+                                        <color key="backgroundColor" red="0.33333334329999997" green="0.74509805439999999" blue="0.27843138579999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -40,11 +63,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="I2A-gW-rWt"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="887"/>
+                    <size key="freeformSize" width="375" height="1067"/>
                     <connections>
+                        <outlet property="distanceToSelectedLocation" destination="JeC-NE-0ay" id="Gyn-xj-4yl"/>
                         <outlet property="locationDetailButton" destination="JOe-op-8S0" id="slj-fP-Nmk"/>
                         <outlet property="locationDetailView" destination="cXY-pV-dsY" id="9sf-8H-paY"/>
+                        <outlet property="selectedLocationLabel" destination="LB1-nb-YKN" id="JAO-Xe-GMs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Du2-o7-jRn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -140,7 +166,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RxI-7f-eMf">
-                                <rect key="frame" x="268" y="104" width="59" height="53"/>
+                                <rect key="frame" x="268" y="101" width="59" height="53"/>
                                 <animations/>
                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                 <state key="normal" image="icon_gps_active.png">
@@ -148,7 +174,7 @@
                                 </state>
                                 <state key="selected" image="icon_gps_inLocation.png"/>
                                 <connections>
-                                    <segue destination="2Oh-yz-wqk" kind="push" id="387-tZ-BiT"/>
+                                    <segue destination="2Oh-yz-wqk" kind="show" id="CQn-jx-NX6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -377,14 +403,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" fixedFrame="YES" text="Distance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GP1-r4-nZU">
-                                                    <rect key="frame" x="15" y="13" width="91" height="14.5"/>
+                                                    <rect key="frame" x="15" y="13" width="91" height="15"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                     <color key="textColor" red="0.32156862749999998" green="0.40000000000000002" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" fixedFrame="YES" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wih-bT-Kgg">
-                                                    <rect key="frame" x="113" y="13" width="220.5" height="18"/>
+                                                    <rect key="frame" x="113" y="13" width="221" height="18"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -403,7 +429,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QA0-tS-8da">
-                                                    <rect key="frame" x="8" y="-30" width="375" height="299.5"/>
+                                                    <rect key="frame" x="8" y="-30" width="375" height="300"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -446,7 +472,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon_gps_active.png" width="23" height="31"/>
+        <image name="icon_gps_active.png" width="12" height="16"/>
         <image name="icon_gps_inLocation.png" width="23" height="31"/>
     </resources>
 </document>

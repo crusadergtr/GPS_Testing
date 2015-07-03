@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GoogleMaps/GoogleMaps.h>
 
-@interface LocationMapViewController : UIViewController
+@interface LocationMapViewController : UIViewController <GMSMapViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *locationDetailButton;
 @property (weak, nonatomic) IBOutlet UIView *locationDetailView;
+@property (strong, nonatomic) GMSMapView *mapView;
+@property (weak, nonatomic) IBOutlet UILabel *selectedLocationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *distanceToSelectedLocation;
 
-- (IBAction)showLocationDetail:(id)sender;
 @end
