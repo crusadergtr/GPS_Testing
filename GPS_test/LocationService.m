@@ -29,7 +29,6 @@
     if(self != nil) {
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        //self.locationManager.distanceFilter = 100; // meters
         self.locationManager.delegate = self;
         
         [self initializeDefaultDataList];
@@ -39,8 +38,6 @@
     }
     return self;
 }
-
-
 
 - (void)startUpdatingLocation
 {

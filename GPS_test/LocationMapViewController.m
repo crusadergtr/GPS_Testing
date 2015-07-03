@@ -10,6 +10,7 @@
 //#import <GoogleMaps/GoogleMaps.h>
 #import "LocationObject.h"
 #import "LocationService.h"
+#import <MapKit/MapKit.h>
 
 
 @interface LocationMapViewController ()
@@ -18,6 +19,8 @@
 @implementation LocationMapViewController {
     BOOL _markerSelected;
     BOOL _detailShown;
+    CLLocation *mapCurrentLocation;
+    CLLocation *mapSelectedLocation;
 }
 
 - (void)viewDidLoad {
@@ -51,7 +54,6 @@
         //self.selectedLocationLabel.text = [LocationService sharedInstance].atLocation.locationName;
     }
 }
-
 
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker
 {
@@ -98,6 +100,9 @@
     } completion:^(BOOL finished){
         //self.selectedLocationLabel.text = @"SSS";
         //[self.distanceToSelectedLocation setText:@"TEST"];
+//        mapCurrentLocation = [[CLLocation alloc]initWithLatitude:[LocationService sharedInstance].currentLocation.coordinate.latitude longitude:[LocationService sharedInstance].currentLocation.coordinate.longitude];
+//        mapSelectedLocation = [[CLLocation alloc]initWithLatitude: _mapView.selectedMarker.position.latitude longitude:_mapView.selectedMarker.position.longitude];
+//        self.distanceToSelectedLocation.text = [NSString stringWithFormat:@"%.0f m", [mapCurrentLocation distanceFromLocation:mapSelectedLocation]];
     }];
 }
 

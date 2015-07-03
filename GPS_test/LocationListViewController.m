@@ -9,6 +9,7 @@
 #import "LocationListViewController.h"
 #import "LocationDetailViewController.h"
 #import "LocationService.h"
+#import <MapKit/MapKit.h>
 
 
 @interface LocationListViewController ()
@@ -16,6 +17,9 @@
 @end
 
 @implementation LocationListViewController
+    CLLocation *listLocation;
+    CLLocation *listCurrentLocation;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -31,6 +35,7 @@
     [super viewDidLoad];
      // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+    [[LocationService sharedInstance] addObserver:self forKeyPath:@"currentLocation" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,6 +59,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     static NSString *CellIdentifier = @"LocationObjectCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
@@ -67,8 +73,29 @@
     LocationObject *locationAtIndex = [[LocationService sharedInstance] objectInListAtIndex:indexPath.row];
     [[cell textLabel] setText:locationAtIndex.locationName];
 //    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"(%@, %@)",locationAtIndex.latitude,locationAtIndex.longitude]];
-    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"(%@, %@)",locationAtIndex.latitude,locationAtIndex.longitude]];
+    listLocation = [[CLLocation alloc]initWithLatitude:[locationAtIndex.latitude doubleValue] longitude:[locationAtIndex.longitude doubleValue]];
+    
+    listCurrentLocation = [[CLLocation alloc]initWithLatitude:[LocationService sharedInstance].currentLocation.coordinate.latitude longitude:[LocationService sharedInstance].currentLocation.coordinate.longitude];
+    
+    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"%.0f m", [listCurrentLocation distanceFromLocation:listLocation]]];
     return cell;
+}
+
+- (void) observeValueForKeyPath:(nullable NSString *)keyPath ofObject:(nullable id)object change:(nullable NSDictionary *)change context:(nullable void *)context {
+    if ([keyPath isEqualToString:@"currentLocation"]) {
+        [self.tableView reloadData];
+    }
+}
+
+
+#pragma mark CLLocationManagerDelegate Methods
+- (void)viewWillDisappear:(BOOL)animated {
+    [[LocationService sharedInstance] stopUpdatingLocation];
+    [[LocationService sharedInstance] removeObserver:self forKeyPath:@"currentLocation"];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [[LocationService sharedInstance] startUpdatingLocation];
 }
 
 

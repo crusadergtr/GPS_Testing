@@ -22,6 +22,8 @@
 
 @implementation LocationDetailViewController
     GMSMapView *mapView_;
+    CLLocation *detailCurrentLocation;
+    CLLocation *markerLocation;
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (textField == self.locationNameLabel)  {
@@ -30,9 +32,6 @@
     }
     return YES;
 }
-
-
-
 
 - (void)viewDidLoad
 {
@@ -49,11 +48,12 @@
     mapView_.myLocationEnabled = YES;
     [self.view addSubview:mapView_];
     
-    
     GMSMarker *marker = [[GMSMarker alloc] init];
     marker.position = CLLocationCoordinate2DMake([theLocation.latitude doubleValue], [theLocation.longitude doubleValue]);
     marker.title = theLocation.locationName;
     marker.map = mapView_;
+    [[LocationService sharedInstance] addObserver:self forKeyPath:@"currentLocation" options:NSKeyValueObservingOptionNew context:nil];
+    markerLocation = [[CLLocation alloc]initWithLatitude:[theLocation.latitude doubleValue] longitude:[theLocation.longitude doubleValue]];
 }
 
 - (void)configureView
@@ -70,45 +70,35 @@
         self.locationNameLabel.text = theLocation.locationName;
         self.latitudeLabel.text = theLocation.latitude;
         self.longitudeLabel.text = theLocation.longitude;
-//        self.distanceLabel.text;
         self.accuracyLabel.text = [NSString stringWithFormat:@"%.0f m", [theLocation.accuracy doubleValue]];
-        
-        CLLocationCoordinate2D locationCoords;
-        locationCoords.latitude = [theLocation.latitude doubleValue];
-        locationCoords.longitude = [theLocation.longitude doubleValue];
-        
-
-//        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(locationCoords, 2000, 2000);
-//        [self.locationMapView setRegion:region];
-//        
-//        MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-//        point.coordinate = locationCoords;
-//        [self.locationMapView addAnnotation:point];
     }
 }
 
-- (void)distanceCalulation{
-    
+- (void) observeValueForKeyPath:(nullable NSString *)keyPath ofObject:(nullable id)object change:(nullable NSDictionary *)change context:(nullable void *)context {
+    if ([keyPath isEqualToString:@"currentLocation"]) {
+        detailCurrentLocation = [[CLLocation alloc]initWithLatitude:[LocationService sharedInstance].currentLocation.coordinate.latitude longitude:[LocationService sharedInstance].currentLocation.coordinate.longitude];
+        self.distanceLabel.text = [NSString stringWithFormat:@"%.0f m", [detailCurrentLocation distanceFromLocation:markerLocation]];
+    }
 }
 
--(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
-    NSLog(@"Location: %@", newLocation);
-    CLLocation *currentlocation = newLocation;
-    
-    LocationObject *theLocation = self.location;
-    
-    static NSDateFormatter *formatter = nil;
-    if (formatter == nil) {
-        formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateStyle:NSDateFormatterMediumStyle];
-    }
-    if (theLocation) {
-        CLLocation* location1 = [[CLLocation alloc] initWithLatitude:[theLocation.latitude doubleValue] longitude:[theLocation.longitude doubleValue]];
-        CLLocation* location2 = [[CLLocation alloc] initWithLatitude:currentlocation.coordinate.latitude longitude:currentlocation.coordinate.longitude];
-        self.distanceLabel.text = [NSString stringWithFormat:@"%.0f m", [location1 distanceFromLocation:location2]];
-    }
-    
-    }
+//-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+////    NSLog(@"Location: %@", newLocation);
+//    CLLocation *currentlocation = newLocation;
+//    
+//    LocationObject *theLocation = self.location;
+//    
+//    static NSDateFormatter *formatter = nil;
+//    if (formatter == nil) {
+//        formatter = [[NSDateFormatter alloc] init];
+//        [formatter setDateStyle:NSDateFormatterMediumStyle];
+//    }
+//    if (theLocation) {
+//        CLLocation* location1 = [[CLLocation alloc] initWithLatitude:[theLocation.latitude doubleValue] longitude:[theLocation.longitude doubleValue]];
+//        CLLocation* location2 = [[CLLocation alloc] initWithLatitude:currentlocation.coordinate.latitude longitude:currentlocation.coordinate.longitude];
+//        self.distanceLabel.text = [NSString stringWithFormat:@"%.0f m", [location1 distanceFromLocation:location2]];
+//        }
+//    
+//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -129,12 +119,13 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
    // [manager stopUpdatingLocation];
-    [[LocationService sharedInstance] startUpdatingLocation];
+    [[LocationService sharedInstance] stopUpdatingLocation];
+    [[LocationService sharedInstance] removeObserver:self forKeyPath:@"currentLocation"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
   //  [manager startUpdatingLocation];
-    [[LocationService sharedInstance] stopUpdatingLocation];
+    [[LocationService sharedInstance] startUpdatingLocation];
 }
 
 @end

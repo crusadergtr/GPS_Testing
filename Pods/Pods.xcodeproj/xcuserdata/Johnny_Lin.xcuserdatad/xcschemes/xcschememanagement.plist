@@ -8,126 +8,186 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Pods-CHCSVParser.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>Pods-FrameAccessor.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>Pods-GPSKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>18</integer>
 		</dict>
 		<key>Pods-GPS_test-ActionSheetPicker-3.0.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 		<key>Pods-GPS_test-CHCSVParser.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>7</integer>
 		</dict>
 		<key>Pods-GPS_test-FrameAccessor.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>8</integer>
 		</dict>
 		<key>Pods-GPS_test-GPSKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
+		<key>Pods-GPS_test-GoogleMaps.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>26</integer>
 		</dict>
 		<key>Pods-GPS_test-Kiwi.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>10</integer>
 		</dict>
 		<key>Pods-GPS_test-MZAppearance.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>12</integer>
 		</dict>
 		<key>Pods-GPS_test-MZFormSheetController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>13</integer>
 		</dict>
 		<key>Pods-GPS_test-MagicalRecord.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>11</integer>
 		</dict>
 		<key>Pods-GPS_test-SIAlertView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>15</integer>
 		</dict>
 		<key>Pods-GPS_test-SVProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>16</integer>
 		</dict>
 		<key>Pods-GPS_test-SWRevealViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>17</integer>
 		</dict>
 		<key>Pods-GPS_test-SevenSwitch.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>14</integer>
 		</dict>
 		<key>Pods-GPS_test.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>Pods-GoogleMaps.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>27</integer>
 		</dict>
 		<key>Pods-MZAppearance.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>20</integer>
 		</dict>
 		<key>Pods-MZFormSheetController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>21</integer>
 		</dict>
 		<key>Pods-MagicalRecord.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>19</integer>
 		</dict>
 		<key>Pods-SIAlertView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>23</integer>
 		</dict>
 		<key>Pods-SVProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>24</integer>
 		</dict>
 		<key>Pods-SWRevealViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>25</integer>
 		</dict>
 		<key>Pods-SevenSwitch.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>22</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -137,7 +197,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>11A5457D03269E822F539D5A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>17DA658C8A865600B0662A8E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>1A8CF28F8FBC237CCB8E639D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1D012349C13A42640B5B5503</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -157,7 +232,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>212A472A46AC58B2768C5254</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>21AFBEAC091189FA06C2B2DD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>21D3FD37F8A98E1FCB50FE79</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2CE02660BA73253E359B23CA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -167,12 +257,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>31D4F103A9B26F2506A3D8C5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>31FF8B6C4C216625D09B9A57</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>363E23496D1AE60A77F84E34</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>36EA2491D0008D64A408F056</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>49F5BE59B49C80CF1B0E9BF9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5143BB6B09294AE93B0FDD01</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -192,12 +302,47 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>64E20EC59A54930721E735CB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>67DEF365755E80BBA6E6B6E3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>6A6C39463C00FC474FB79B28</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6B1B42F2E2BAE85DAF188074</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6C2ABDFA245C05B00034399B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>754236F4CE684DC022DD5F11</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>755E03A86C40D942C6E69D7D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>82F4516129ECE59D1E4130F7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>881F56E2D090A7AF7AE4768A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -212,12 +357,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>97DD2A1D0A5978B30822EE49</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9B5AA0428BE7A65F1F08CEAC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A43914FDCBAAE5D886E14AC8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>AAF2E70B41CEF86E1C5D87CE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AB80EEDE30A807D030F29217</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AD2260C10CC5D9C0FE6C5EF9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -242,7 +407,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B3692F1EC5D4F439A2031414</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B5F57C588DA6FD6E8DEE1BD5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B6D1BC7BDB8DCA59A003313E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C57ED5EE1CBF2A44F9361FA6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -252,7 +432,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>D6389994678DF1EC00A5144D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F45EEFE66443FEFCEA780C0F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>F5F8970799CCD62D50B59B72</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA2EC33B43F560ACA807CEDE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
