@@ -8,6 +8,8 @@
 
 #import "LocationService.h"
 
+static float distanceAccuracy = 20;
+
 @interface LocationService ()
     - (void)initializeDefaultDataList;
     - (void)initializeFromPlist;
@@ -35,6 +37,7 @@
         [self initializeFromPlist];
         NSLog(@"Initialise Location");
         self.atLocation = nil;
+        
     }
     return self;
 }
@@ -43,6 +46,7 @@
 {
     NSLog(@"Starting location updates");
     [self.locationManager startUpdatingLocation];
+    [self distancesToCurrentLocation];
 }
 
 - (void) stopUpdatingLocation
@@ -62,10 +66,35 @@
      didUpdateLocations:(NSArray*)locations
 {
     CLLocation *location = [locations lastObject];
-    NSLog(@"Latitude %+.6f, Longitude %+.6f\n",
-          location.coordinate.latitude,
-          location.coordinate.longitude);
+//    NSLog(@"Latitude %+.6f, Longitude %+.6f\n", location.coordinate.latitude, location.coordinate.longitude);
     self.currentLocation = location;
+    [self distancesToCurrentLocation];
+    
+}
+
+- (void) distancesToCurrentLocation {
+    for(int i = 0; i < self.masterLocationList.count; i++) {
+        LocationObject *a = [self.masterLocationList objectAtIndex:i];
+        CLLocation *al = [[CLLocation alloc]initWithLatitude:[a.latitude doubleValue] longitude:[a.longitude doubleValue]];
+        a.distance = [NSNumber numberWithDouble:[al distanceFromLocation:self.currentLocation]];
+    }
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"distance"
+                                                 ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSArray *sortedArray;
+    sortedArray = [self.masterLocationList sortedArrayUsingDescriptors:sortDescriptors];
+    LocationObject *obj = [sortedArray objectAtIndex:0];
+    
+    if ([obj.distance doubleValue]>distanceAccuracy ) {
+        if (self.atLocation != nil) {
+        self.atLocation = nil;
+        NSLog(@"change atLocation: %@ | %.1f | %@ |%@ ",self.atLocation.locationName, [self.atLocation.distance doubleValue], self.atLocation.latitude, self.atLocation.longitude);
+        }
+    } else if (obj != self.atLocation ) {
+        self.atLocation = obj;
+        NSLog(@"change atLocation: %@ | %.1f | %@ |%@ ",self.atLocation.locationName, [self.atLocation.distance doubleValue], self.atLocation.latitude, self.atLocation.longitude);
+    }
 }
 
 - (void)setMasterLocationList:(NSMutableArray *)masterLocationList {

@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIButton *locationDetailBtn;
+@property (weak, nonatomic) IBOutlet UIButton *saveLocationButton;
 
 
 @end

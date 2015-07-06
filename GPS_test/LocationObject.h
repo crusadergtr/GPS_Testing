@@ -14,6 +14,7 @@
 @property (nonatomic, copy) NSString *longitude;
 @property (nonatomic, copy) NSString *accuracy;
 @property (nonatomic, strong) NSDate *date;
+@property (nonatomic, strong) NSNumber *distance;
 
 -(id)initWithName:(NSString *)locationName latitude:(NSString *)latitude longitude:(NSString *)longitude accuracy:(NSString *)accuracy date:(NSDate *)date;
 @end

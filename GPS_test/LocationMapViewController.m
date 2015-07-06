@@ -17,15 +17,13 @@
 @end
 
 @implementation LocationMapViewController {
-    BOOL _markerSelected;
-    BOOL _detailShown;
-    CLLocation *mapCurrentLocation;
-    CLLocation *mapSelectedLocation;
+    GMSMarker *atMarker;
+    GMSMarker *tappedMarker;
+    LocationObject *tappedLocation;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[LocationService sharedInstance] addObserver:self forKeyPath:@"atLocation" options:NSKeyValueObservingOptionNew context:nil];
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:[LocationService sharedInstance].currentLocation.coordinate.latitude
                                                             longitude:[LocationService sharedInstance].currentLocation.coordinate.longitude
                                                                  zoom:17];
@@ -40,86 +38,119 @@
         LocationObject *locationAtIndex = [[LocationService sharedInstance] objectInListAtIndex:i];
         GMSMarker *marker = [[GMSMarker alloc] init];
         marker.position = CLLocationCoordinate2DMake([locationAtIndex.latitude doubleValue], [locationAtIndex.longitude doubleValue]);
-        marker.title = locationAtIndex.locationName;
-        marker.map = self.mapView;
-        marker.icon = [UIImage imageNamed:@"icon_gps_active"];
+        marker.icon = [UIImage imageNamed:@"gps_icon_inactive"];
         marker.userData = locationAtIndex;
+        marker.map = self.mapView;
+
     }
-    _markerSelected = NO;
+    atMarker = [[GMSMarker alloc] init];
+    [atMarker setTappable:NO];
+    tappedMarker = [[GMSMarker alloc] init];
+    if ([LocationService sharedInstance].atLocation != nil) {
+        [self setActiveMarker];
+        tappedMarker = atMarker;
+        LocationObject *markerLocation = tappedMarker.userData;
+        self.selectedLocationLabel.text = markerLocation.locationName;
+        [self showLocationInfo];
+    }
 
 }
 
 - (void) observeValueForKeyPath:(nullable NSString *)keyPath ofObject:(nullable id)object change:(nullable NSDictionary *)change context:(nullable void *)context {
     if ([keyPath isEqualToString:@"atLocation"]) {
-        //self.selectedLocationLabel.text = [LocationService sharedInstance].atLocation.locationName;
+        [self setActiveMarker];
+    } else if ([keyPath isEqualToString:@"currentLocation"]) {
+        LocationObject *markerLocation = tappedMarker.userData;
+        self.distanceToSelectedLocation.text = [NSString stringWithFormat:@"%.0f m", [markerLocation.distance doubleValue]];
     }
+}
+
+- (void) setActiveMarker {
+    NSLog(@"set active marker at %f | %f",[[LocationService sharedInstance].atLocation.latitude doubleValue], [[LocationService sharedInstance].atLocation.longitude doubleValue]);
+    atMarker.position = CLLocationCoordinate2DMake([[LocationService sharedInstance].atLocation.latitude doubleValue], [[LocationService sharedInstance].atLocation.longitude doubleValue]);
+    atMarker.icon = [UIImage imageNamed:@"gps_icon_active"];
+    atMarker.userData = [LocationService sharedInstance].atLocation;
+    atMarker.map = self.mapView;
 }
 
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker
 {
-    LocationObject *obj = marker.userData;
-    //self.selectedLocationLabel.text = obj.locationName;
-    if (obj == [LocationService sharedInstance].atLocation) {
-        NSLog(@"same marker");
-        if (_markerSelected == NO) {
-            [self open];
-            NSLog(@"open info");
-            _markerSelected = YES;
-        } else if (_markerSelected == YES){
-            [self close];
-            NSLog(@"close info");
-            _markerSelected = NO;
-        }
-    } else if (obj != [LocationService sharedInstance].atLocation) {
-        NSLog(@"not same marker");
-        [LocationService sharedInstance].atLocation = obj;
+    LocationObject *markerLocation = marker.userData;
+    
+    if (marker == tappedMarker) {
+        marker.icon = [UIImage imageNamed:@"gps_icon_inactive"];
+        tappedMarker = nil;
+        tappedLocation = nil;
+        [self closeLocationInfo];
+    } else {
+        tappedMarker.icon = [UIImage imageNamed:@"gps_icon_inactive"];
+        marker.icon = [UIImage imageNamed:@"gps_icon_selected"];
+        self.selectedLocationLabel.text = markerLocation.locationName;
+        [self showLocationInfo];
+        [self addLocationDetail:markerLocation];
+        tappedMarker = marker;
+        tappedLocation = markerLocation;
         
-        if (_markerSelected == NO) {
-            NSLog(@"open info");
-            [self open];
-            _markerSelected = YES;
-        } else if (_markerSelected == YES){
-            NSLog(@"change info");
-            _markerSelected = YES;
-        }
+        
     }
     
     return YES;
 }
 
-- (void)open {
-            CGRect existingFrame = self.locationDetailView.frame;
-    NSLog(@"a= %f",existingFrame.origin.y);
-            existingFrame.origin.y = self.locationDetailView.frame.origin.y - 60;
-//            [UIView animateWithDuration:0.3 animations:^{
-//                self.locationDetailView.frame = existingFrame;
-//            }];
-    [UIView animateKeyframesWithDuration:0.3 delay:0 options:UIViewKeyframeAnimationOptionCalculationModeCubic animations:^{
-        self.locationDetailView.frame = existingFrame;
-        [self.distanceToSelectedLocation setText:@"TEST"];
-    } completion:^(BOOL finished){
-        //self.selectedLocationLabel.text = @"SSS";
-        //[self.distanceToSelectedLocation setText:@"TEST"];
-//        mapCurrentLocation = [[CLLocation alloc]initWithLatitude:[LocationService sharedInstance].currentLocation.coordinate.latitude longitude:[LocationService sharedInstance].currentLocation.coordinate.longitude];
-//        mapSelectedLocation = [[CLLocation alloc]initWithLatitude: _mapView.selectedMarker.position.latitude longitude:_mapView.selectedMarker.position.longitude];
-//        self.distanceToSelectedLocation.text = [NSString stringWithFormat:@"%.0f m", [mapCurrentLocation distanceFromLocation:mapSelectedLocation]];
-    }];
+- (void)showLocationDetail {
+    [self.view layoutIfNeeded];
+    
+    self.bottomconstraint.constant = 0;
+    [UIView animateWithDuration:.5
+                     animations:^{
+                         [self.view layoutIfNeeded]; // Called on parent view
+                         [self.locationInformationView setAlpha:0];
+                     }];
+
 }
 
-- (void)close {
-    CGRect existingFrame = self.locationDetailView.frame;
-     NSLog(@"b= %f",existingFrame.origin.y);
-    existingFrame.origin.y = self.locationDetailView.frame.origin.y + 60;
-    [UIView animateWithDuration:0.3 animations:^{
-        self.locationDetailView.frame = existingFrame;
-    }];
+- (void) addLocationDetail: (LocationObject *)location{
+    NSLog(@"add location detail");
+    self.locationName.text = location.locationName;
+    self.GPSCoordinates.text = [NSString stringWithFormat:@"(%@, %@)",location.latitude, location.longitude];
+}
+
+- (void)showLocationInfo {
+    [self.view layoutIfNeeded];
+    
+    self.bottomconstraint.constant = -340;
+    [UIView animateWithDuration:.5
+                     animations:^{
+                         [self.view layoutIfNeeded]; // Called on parent view
+                         [self.locationInformationView setAlpha:1];
+                     }];
+}
+
+- (void)closeLocationInfo {
+    [self.view layoutIfNeeded];
+    
+    self.bottomconstraint.constant = -400;
+    [UIView animateWithDuration:.5
+                     animations:^{
+                         [self.view layoutIfNeeded]; // Called on parent view
+                     }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [[LocationService sharedInstance] stopUpdatingLocation];
     [[LocationService sharedInstance] removeObserver:self forKeyPath:@"atLocation"];
+    [[LocationService sharedInstance] removeObserver:self forKeyPath:@"currentLocation"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [[LocationService sharedInstance] startUpdatingLocation];
+    [[LocationService sharedInstance] addObserver:self forKeyPath:@"atLocation" options:NSKeyValueObservingOptionPrior | NSKeyValueObservingOptionPrior context:nil];
+    [[LocationService sharedInstance] addObserver:self forKeyPath:@"currentLocation" options:NSKeyValueObservingOptionPrior | NSKeyValueObservingOptionPrior context:nil];
+    
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    [self setActiveMarker];
 }
 
 /*
@@ -131,6 +162,36 @@
  // Pass the selected object to the new view controller.
  }
  */
+
+
+- (IBAction)locationDetailSwipeToOpen:(id)sender {
+    [self showLocationDetail];
+}
+
+- (IBAction)locationDetailSwipeToClose:(id)sender {
+    [self showLocationInfo];
+}
+
+- (IBAction)hideDetailTapToClose:(id)sender {
+    [self showLocationInfo];
+}
+
+- (IBAction)showLocationDetailAction:(id)sender {
+    if (self.bottomconstraint.constant == -340) {
+        [self showLocationDetail];
+    } else if (self.bottomconstraint.constant == 0) {
+        [self showLocationInfo];
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    self.selectedLocationLabel.text = self.locationName.text;
+    [[LocationService sharedInstance] saveToPlist];
+    tappedLocation.locationName = self.locationName.text;
+    return NO;
+}
+
 
 
 @end

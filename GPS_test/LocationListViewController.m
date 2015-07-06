@@ -72,12 +72,7 @@
     
     LocationObject *locationAtIndex = [[LocationService sharedInstance] objectInListAtIndex:indexPath.row];
     [[cell textLabel] setText:locationAtIndex.locationName];
-//    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"(%@, %@)",locationAtIndex.latitude,locationAtIndex.longitude]];
-    listLocation = [[CLLocation alloc]initWithLatitude:[locationAtIndex.latitude doubleValue] longitude:[locationAtIndex.longitude doubleValue]];
-    
-    listCurrentLocation = [[CLLocation alloc]initWithLatitude:[LocationService sharedInstance].currentLocation.coordinate.latitude longitude:[LocationService sharedInstance].currentLocation.coordinate.longitude];
-    
-    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"%.0f m", [listCurrentLocation distanceFromLocation:listLocation]]];
+    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"%.0f m", [locationAtIndex.distance doubleValue]]];
     return cell;
 }
 
@@ -91,7 +86,7 @@
 #pragma mark CLLocationManagerDelegate Methods
 - (void)viewWillDisappear:(BOOL)animated {
     [[LocationService sharedInstance] stopUpdatingLocation];
-    [[LocationService sharedInstance] removeObserver:self forKeyPath:@"currentLocation"];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -170,6 +165,10 @@
     [self.tableView reloadData];
     [[LocationService sharedInstance] saveToPlist];
     }
+}
+
+- (void) dealloc {
+    [[LocationService sharedInstance] removeObserver:self forKeyPath:@"currentLocation"];
 }
 
 @end

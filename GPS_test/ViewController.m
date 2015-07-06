@@ -41,35 +41,27 @@ CLLocation *mainMarksLocation;
 }
 
 - (void) observeValueForKeyPath:(nullable NSString *)keyPath ofObject:(nullable id)object change:(nullable NSDictionary *)change context:(nullable void *)context {
+    
+    
     if ([keyPath isEqualToString:@"currentLocation"]) {
-        mainCurrentLocation = [[CLLocation alloc]initWithLatitude:[LocationService sharedInstance].currentLocation.coordinate.latitude longitude:[LocationService sharedInstance].currentLocation.coordinate.longitude];
         self.latitude.text = [NSString stringWithFormat:@"%f", [LocationService sharedInstance].currentLocation.coordinate.latitude];
         self.longitude.text = [NSString stringWithFormat:@"%f", [LocationService sharedInstance].currentLocation.coordinate.longitude];
         self.Accuracy.text = [NSString stringWithFormat:@"%.0f m", [LocationService sharedInstance].currentLocation.horizontalAccuracy];
-        for (NSInteger i = 0; i < [[LocationService sharedInstance] countOfList]; i++) {
-            [[LocationService sharedInstance] objectInListAtIndex:i];
-            LocationObject *locationAtIndex = [[LocationService sharedInstance] objectInListAtIndex:i];
-            mainMarksLocation = [[CLLocation alloc]initWithLatitude:[locationAtIndex.latitude doubleValue] longitude:[locationAtIndex.longitude doubleValue]];
-            if ([mainCurrentLocation distanceFromLocation:mainMarksLocation] <= 5) {
-                [self.locationDetailBtn setSelected:YES];
-                break;
-            } else {
-                [self.locationDetailBtn setSelected:NO];
-            }
+        
+        if ([LocationService sharedInstance].atLocation !=nil) {
+            [self.locationDetailBtn setSelected:YES];
+            [self.saveLocationButton setEnabled:NO];
+        } else {
+            [self.locationDetailBtn setSelected:NO];
+            [self.saveLocationButton setEnabled:YES];
         }
     }
 }
 
 
 #pragma mark CLLocationManagerDelegate Methods
-//- (void)dealloc {
-//    [[LocationService sharedInstance] removeObserver:self forKeyPath:@"currentLocation"];
-//    NSLog(@"remove observor");
-//}
-
 - (void)viewWillDisappear:(BOOL)animated {
     [[LocationService sharedInstance] stopUpdatingLocation];
-    [[LocationService sharedInstance] removeObserver:self forKeyPath:@"currentLocation"];
     NSLog(@"viewController Disappear");
 }
 
@@ -93,5 +85,10 @@ CLLocation *mainMarksLocation;
     if ([[segue identifier] isEqualToString:@"ShowLocations"]) {
 
     }
+}
+
+- (void) dealloc {
+    [[LocationService sharedInstance] removeObserver:self forKeyPath:@"currentLocation"];
+
 }
 @end
