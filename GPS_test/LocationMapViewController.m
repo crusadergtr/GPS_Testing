@@ -103,10 +103,15 @@
     self.bottomconstraint.constant = 0;
     [UIView animateWithDuration:.5
                      animations:^{
-                         [self.view layoutIfNeeded]; // Called on parent view
+                         
                          [self.locationInformationView setAlpha:0];
+                         
+                         [self.view layoutIfNeeded]; // Called on parent view
                      }];
-
+    GMSCameraUpdate *update = [GMSCameraUpdate setTarget:tappedMarker.position];
+    [self.mapView moveCamera:update];
+    update = [GMSCameraUpdate scrollByX:0 Y:self.mapView.bounds.size.height/4];
+    [self.mapView moveCamera:update];
 }
 
 - (void) addLocationDetail: (LocationObject *)location{
