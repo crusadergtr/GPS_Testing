@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "970E2C97C8CEBFFD0D7521AA"
+               BlueprintIdentifier = "E784BB87198B1CDF29FCCFFA"
                BuildableName = "libPods-GPS_test-CHCSVParser.a"
                BlueprintName = "Pods-GPS_test-CHCSVParser"
                ReferencedContainer = "container:Pods.xcodeproj">

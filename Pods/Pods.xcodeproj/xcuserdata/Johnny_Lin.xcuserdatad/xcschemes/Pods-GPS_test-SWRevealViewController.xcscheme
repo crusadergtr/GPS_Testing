@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AAF2E70B41CEF86E1C5D87CE"
+               BlueprintIdentifier = "2BBAF9CCFBE4AA2B0D1ED49C"
                BuildableName = "libPods-GPS_test-SWRevealViewController.a"
                BlueprintName = "Pods-GPS_test-SWRevealViewController"
                ReferencedContainer = "container:Pods.xcodeproj">
