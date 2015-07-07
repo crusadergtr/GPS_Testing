@@ -24,6 +24,8 @@
 -(void)startUpdatingLocation;
 -(void)stopUpdatingLocation;
 
+- (NSString *) distanceFormatter : (NSNumber *)distance ;
+
 - (NSUInteger)countOfList;
 - (LocationObject *)objectInListAtIndex:(NSUInteger)theIndex;
 - (void)removeObjectAtIndex:(NSUInteger)theIndex;

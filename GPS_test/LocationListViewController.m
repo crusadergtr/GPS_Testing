@@ -72,8 +72,8 @@
     
     LocationObject *locationAtIndex = [[LocationService sharedInstance] objectInListAtIndex:indexPath.row];
     [[cell textLabel] setText:locationAtIndex.locationName];
-    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"%.0f m", [locationAtIndex.distance doubleValue]]];
-    return cell;
+    [[cell detailTextLabel] setText:[[LocationService sharedInstance] distanceFormatter:locationAtIndex.distance]];
+     return cell;
 }
 
 - (void) observeValueForKeyPath:(nullable NSString *)keyPath ofObject:(nullable id)object change:(nullable NSDictionary *)change context:(nullable void *)context {
@@ -85,12 +85,11 @@
 
 #pragma mark CLLocationManagerDelegate Methods
 - (void)viewWillDisappear:(BOOL)animated {
-    [[LocationService sharedInstance] stopUpdatingLocation];
+    
     
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [[LocationService sharedInstance] startUpdatingLocation];
 }
 
 

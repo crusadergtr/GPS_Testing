@@ -160,6 +160,19 @@ static float distanceAccuracy = 20;
     
 }
 
+- (NSString *) distanceFormatter : (NSNumber *)distance {
+    if ([distance doubleValue] < 1000) {
+        return [NSString stringWithFormat:@"%.0f m", [distance doubleValue]];
+    } else if ([distance doubleValue] < 10000) {
+        return [NSString stringWithFormat:@"%.2f km", [distance doubleValue]/1000];
+    } else if ([distance doubleValue] < 10000) {
+        return [NSString stringWithFormat:@"%.1f km", [distance doubleValue]/1000];
+    } else {
+        return [NSString stringWithFormat:@"%.0f km", [distance doubleValue]/1000];
+    }
+
+}
+
 - (NSUInteger)countOfList {
     return [self.masterLocationList count];
 }

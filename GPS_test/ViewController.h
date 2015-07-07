@@ -12,6 +12,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *locationDetailBtn;
 @property (weak, nonatomic) IBOutlet UIButton *saveLocationButton;
 
+@property (weak, nonatomic) IBOutlet UISwitch *locationAwareSwitch;
+- (IBAction)changeLocationAware:(id)sender;
 
 @end
 

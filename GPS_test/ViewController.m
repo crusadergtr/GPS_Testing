@@ -61,12 +61,11 @@ CLLocation *mainMarksLocation;
 
 #pragma mark CLLocationManagerDelegate Methods
 - (void)viewWillDisappear:(BOOL)animated {
-    [[LocationService sharedInstance] stopUpdatingLocation];
+    
     NSLog(@"viewController Disappear");
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [[LocationService sharedInstance] startUpdatingLocation];
 }
 
 - (IBAction)saveLocation:(id)sender {
@@ -90,5 +89,14 @@ CLLocation *mainMarksLocation;
 - (void) dealloc {
     [[LocationService sharedInstance] removeObserver:self forKeyPath:@"currentLocation"];
 
+}
+- (IBAction)changeLocationAware:(id)sender {
+    if (self.locationAwareSwitch.on == YES) {
+        [[LocationService sharedInstance] startUpdatingLocation];
+
+    } else {
+        [[LocationService sharedInstance] stopUpdatingLocation];
+
+    }
 }
 @end
