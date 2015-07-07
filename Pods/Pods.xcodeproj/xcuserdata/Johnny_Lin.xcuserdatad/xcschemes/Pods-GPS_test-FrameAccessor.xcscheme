@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B37CCD8E968454116544A95E"
+               BlueprintIdentifier = "28E97EBB01648F6D9308AFB4"
                BuildableName = "libPods-GPS_test-FrameAccessor.a"
                BlueprintName = "Pods-GPS_test-FrameAccessor"
                ReferencedContainer = "container:Pods.xcodeproj">

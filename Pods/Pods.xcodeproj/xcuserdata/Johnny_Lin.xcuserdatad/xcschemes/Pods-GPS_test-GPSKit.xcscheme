@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CCEE7286CD2CA0166E9B0468"
+               BlueprintIdentifier = "EA50E51A08F259D79AF23EB3"
                BuildableName = "libPods-GPS_test-GPSKit.a"
                BlueprintName = "Pods-GPS_test-GPSKit"
                ReferencedContainer = "container:Pods.xcodeproj">

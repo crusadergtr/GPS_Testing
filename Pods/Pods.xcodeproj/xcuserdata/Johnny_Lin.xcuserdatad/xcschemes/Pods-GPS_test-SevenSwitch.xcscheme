@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6FD1CD4FEC912FA4F769EFB5"
+               BlueprintIdentifier = "8F7463FC8F6B9DF1CDE5112B"
                BuildableName = "libPods-GPS_test-SevenSwitch.a"
                BlueprintName = "Pods-GPS_test-SevenSwitch"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.20" systemVersion="15A204h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6Ty-u9-4CV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6Ty-u9-4CV">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -265,19 +265,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Du2-o7-jRn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="down" id="SXa-NO-avC">
-                    <pressTypeMask key="allowedPressTypes"/>
                     <connections>
                         <action selector="locationDetailSwipeToClose:" destination="2Oh-yz-wqk" id="7gf-I5-PY6"/>
                     </connections>
                 </swipeGestureRecognizer>
                 <tapGestureRecognizer id="vd4-r5-MrH">
-                    <pressTypeMask key="allowedPressTypes"/>
                     <connections>
                         <action selector="hideDetailTapToClose:" destination="2Oh-yz-wqk" id="fMZ-SM-y8w"/>
                     </connections>
                 </tapGestureRecognizer>
                 <swipeGestureRecognizer direction="up" id="DXA-SW-uWL">
-                    <pressTypeMask key="allowedPressTypes"/>
                     <connections>
                         <action selector="locationDetailSwipeToOpen:" destination="2Oh-yz-wqk" id="zJ6-x6-0ff"/>
                     </connections>
@@ -392,7 +389,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vw6-2g-swB">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="VCSaveLocation" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vw6-2g-swB">
                                 <rect key="frame" x="137" y="265" width="100" height="30"/>
                                 <animations/>
                                 <constraints>

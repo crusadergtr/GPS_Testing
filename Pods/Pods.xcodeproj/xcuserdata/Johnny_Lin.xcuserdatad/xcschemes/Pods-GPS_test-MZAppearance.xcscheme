@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4CDB7B9CC9E78CBBE1EB4EF0"
+               BlueprintIdentifier = "4BFDCF2FBAC5E24A1294F474"
                BuildableName = "libPods-GPS_test-MZAppearance.a"
                BlueprintName = "Pods-GPS_test-MZAppearance"
                ReferencedContainer = "container:Pods.xcodeproj">
