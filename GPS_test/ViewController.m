@@ -73,7 +73,6 @@ CLLocation *mainMarksLocation;
 - (IBAction)saveLocation:(id)sender {
     LocationObject *savedLocation;
     NSDate *today = [NSDate date];
-
     
     savedLocation = [[LocationObject alloc] initWithName:[NSString stringWithFormat:@"%@",today] latitude:_latitude.text longitude:_longitude.text accuracy:_Accuracy.text date:today];
 
@@ -100,7 +99,6 @@ CLLocation *mainMarksLocation;
 
     } else {
         [[LocationService sharedInstance] stopUpdatingLocation];
-
     }
 }
 @end
