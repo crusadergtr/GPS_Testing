@@ -45,14 +45,11 @@
     CLLocation *testMockLocation;
 
     testCurrentLocation = [[CLLocation alloc] initWithLatitude:[LocationService sharedInstance].currentLocation.coordinate.latitude longitude:[LocationService sharedInstance].currentLocation.coordinate.longitude];
-    testMockLocation = [[CLLocation alloc]initWithLatitude:33.8650 longitude:151.2094];
+    testMockLocation = [[CLLocation alloc]initWithLatitude:33.8655 longitude:151.2090];
     
     NSLog(@"\ncurrent location latitude:  %f \n \ncurrent location longitude: %f", testCurrentLocation.coordinate.latitude, testCurrentLocation.coordinate.longitude);
-//    testSaveLocation = [[LocationObject alloc] initWithName:[NSString stringWithFormat:@"%@", today] latitude:[NSString stringWithFormat:@"%f", [LocationService sharedInstance].currentLocation.coordinate.latitude] longitude:[NSString stringWithFormat:@"%f", [LocationService sharedInstance].currentLocation.coordinate.longitude] accuracy:[NSString stringWithFormat:@"%.0f", [LocationService sharedInstance].currentLocation.horizontalAccuracy] date:today];
-    testSaveLocation = [[LocationObject alloc] initWithName:[NSString stringWithFormat:@"%@", today] latitude:[NSString stringWithFormat:@"33.8650"] longitude:[NSString stringWithFormat:@"151.2094"] accuracy:[NSString stringWithFormat:@"10"] date:today];
+    testSaveLocation = [[LocationObject alloc] initWithName:[NSString stringWithFormat:@"%@", today] latitude:[NSString stringWithFormat:@"33.8655"] longitude:[NSString stringWithFormat:@"151.2090"] accuracy:[NSString stringWithFormat:@"10"] date:today];
     
-//    testCurrentLocation = [[CLLocation alloc] initwithName:[NSString stringWithFormat:@"%@", [NSData date] latitude:]]
-//    [[[LocationService sharedInstance] addLocation:testSaveLocation];
     NSLog(@"\nmockup location latitude:  %@ \nmockup location longitude: %@", testSaveLocation.latitude, testSaveLocation.longitude);
     [[LocationService sharedInstance] addLocation:testSaveLocation];
     [[LocationService sharedInstance] saveToPlist];
@@ -61,27 +58,29 @@
         [[LocationService sharedInstance] objectInListAtIndex:i];
         LocationObject *locationAtIndex = [[LocationService sharedInstance] objectInListAtIndex:i];
         NSLog(@"\nList Location latitude:  %@ \nlList Location longitude: %@", locationAtIndex.latitude, locationAtIndex.longitude);
-        if ([locationAtIndex.latitude doubleValue] == testMockLocation.coordinate.latitude || [locationAtIndex.latitude doubleValue] == testMockLocation.coordinate.longitude) {
-            if ([locationAtIndex.latitude doubleValue] == testMockLocation.coordinate.latitude || [locationAtIndex.latitude doubleValue] == testMockLocation.coordinate.longitude) {
+        if ([locationAtIndex.latitude doubleValue] == testMockLocation.coordinate.latitude && [locationAtIndex.longitude doubleValue] == testMockLocation.coordinate.longitude) {
                 testFoundLocation = [[CLLocation alloc] initWithLatitude:[locationAtIndex.latitude doubleValue] longitude:[locationAtIndex.longitude doubleValue]];
                 NSLog(@"\nFound location at: %ld", (long)i);
                 NSLog(@"\nFound location latitude:  @%f \nFound location longitude: @%f", testFoundLocation.coordinate.latitude, testFoundLocation.coordinate.longitude);
                 break;
-            }
         }
     }
 //    XCTAssertEqualObjects(testCurrentLocation, testFoundLocation, @"The save founction didn't work very well");
 //    XCTAssertEqual(testCurrentLocation.coordinate.latitude, testFoundLocation.coordinate.latitude, @"The save founction didn't work very well - latitude");
 //    XCTAssertEqual(testCurrentLocation.coordinate.longitude, testFoundLocation.coordinate.longitude, @"The save founction didn't work very well - longitude");
-    XCTAssertEqual(33.8650, testFoundLocation.coordinate.latitude, @"The save founction didn't work very well - latitude");
-    XCTAssertEqual(151.2094, testFoundLocation.coordinate.longitude, @"The save founction didn't work very well - longitude");
+    XCTAssertEqual(33.8655, testFoundLocation.coordinate.latitude, @"The save founction didn't work very well - latitude");
+    XCTAssertEqual(151.2090, testFoundLocation.coordinate.longitude, @"The save founction didn't work very well - longitude");
+}
+
+- (void)testAtLocation {
+    
 }
 
 - (void)testReadLocationList {
     for (NSInteger i = 0; i < [[LocationService sharedInstance] countOfList]; i++) {
         NSLog(@"test list property: %ld", (long)i);
         [[LocationService sharedInstance] objectInListAtIndex:i];
-        LocationObject *locationAtIndex = [[LocationService sharedInstance] objectInListAtIndex:i];
+//        LocationObject *locationAtIndex = [[LocationService sharedInstance] objectInListAtIndex:i];
 //        NSLog(@"\nlatitude:  %@ \nlongitude: %@", locationAtIndex.latitude, locationAtIndex.longitude);
     }
 }
