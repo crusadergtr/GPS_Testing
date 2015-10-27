@@ -22,7 +22,7 @@
     LocationObject *tappedLocation;
     NSMutableArray *allMarkers;
 }
-
+//ffffdfsd
 - (void)viewDidLoad {
     [super viewDidLoad];
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:[LocationService sharedInstance].currentLocation.coordinate.latitude
